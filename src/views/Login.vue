@@ -41,7 +41,6 @@ export default {
     const loginWithGoogle = async (response) => {
       try {
         const user = decodeCredential(response.credential);
-
         const res = await axios.get(`${API_BASE_URL}/login/${user.email}`);
 
         const userData = res.data.data;
@@ -78,7 +77,9 @@ export default {
             type: "error",
           });
         } else {
-          console.log(error);
+          toast(error.response.data.msg, {
+            type: "error",
+          });
         }
       }
     };
