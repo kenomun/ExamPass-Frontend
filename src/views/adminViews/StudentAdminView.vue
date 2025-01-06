@@ -132,7 +132,7 @@ export default {
   },
   async created() {
     try {
-      const response = await axios.get(`${API_BASE_URL}/students`);
+      const response = await axios.get(`http://localhost:5000/api/students`);
       const students = response.data.data.filter((user) => user.roleId === 3);
 
       // Determina dinámicamente los encabezados en base a los datos
